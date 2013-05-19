@@ -14,6 +14,7 @@ PImage gauche ;
 PImage droite ;
 PImage stop ;
 PImage fond ;
+PImage rotation ;
 
 
 void setup()
@@ -26,6 +27,7 @@ void setup()
   gauche = loadImage("fleche_gauche.jpg");
   droite = loadImage("fleche_droite.jpg");
   stop = loadImage("stop.gif");
+  rotation = loadImage("rotation.jpg")
   lego = new LegoNXT(this, "COM8");
   frameRate(5);
   image(fond, 0, 0); //mise en place de l'image de fond
@@ -33,9 +35,10 @@ void setup()
 }
 
 void draw() {
-  //image(fond, 0, 0);
-  //text(lego.getMotorRotationCount(LegoNXT.MOTOR_B),20,20);
-   //text(lego.getMotorRotationCount(LegoNXT.MOTOR_C),80,20);
+  image(rotation, 0, 0);
+  fill(255);
+  text(lego.getMotorRotationCount(LegoNXT.MOTOR_B),110,70);
+  text(lego.getMotorRotationCount(LegoNXT.MOTOR_C),342,70);
 }
 
 void keyPressed() {
