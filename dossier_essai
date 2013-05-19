@@ -1,0 +1,421 @@
+BRAZEAU Robin
+DISSLER Valentin
+TS2
+Mon CV
+
+LEGO MINDSTROMS NXT 2.0
+
+
+
+
+
+
+
+
+
+
+
+
+SOMMAIRE
+
+Présentation 
+             Pourquoi ce projet ?
+             But du projet
+             Environnement de travail utilisé
+             Répartition des tâches
+Lego NXT en général 
+Présentation des différents éléments du robot
+Présentation du logiciel de programmation associé
+Notre projet
+Librairies
+Utilisation de Processing (Bluetooth)
+Fonctions utilisées
+Réalisation finale
+Les limites du projet
+Pour aller plus loin
+Diffusion du projet
+Annexe 
+
+
+Présentation
+
+Pourquoi ce projet ?
+
+Nous avons choisi ce projet car la robotique fait de plus en plus partie de notre quotidien. De plus en plus de robots sont fabriqués pour effectuer des tâches extrêmement différentes. De plus, le côté ludique du robot associé à une utilisation originale du lego nous semblait intéressant.
+But du projet
+
+Le but de notre projet est de créer une interface clavier (d’ordinateur) permettant de faire exécuter au robot les trajectoires de différentes lettres : lorsqu’on appuie sur la touche "L", le robot effectue le tracé du "L".
+
+En 1928, le premier robot « écrivain » est créé au Japon. Depuis, l’avènement de l’informatique a permis de faire exécuter aux robots des tâches complexes dans des temps limités, et l’un de ses challenges a été de développer l’habileté des robots à écrire. A tel point qu’aujourd’hui les chercheurs du CNRS imaginent désormais envisageable l’apprentissage de l’écriture assistée par robot.
+Environnement de travail utilisé
+
+Pour mener à bien notre projet, nous avons utilisé :
+une boîte  de lego Mindstorms NXT (brique NXT, servomoteurs, lego de constructions)
+Processing (avec la librairie NXTComm permettant d’utiliser les fonctions appropriées)
+Le langage Java Processing
+
+Sur le web, nous n’avons trouvé aucun projet se rapprochant du nôtre, utilisant Processing pour piloter à distance une brique NXT mais celle-ci peut être contrôlée à partir d’un joystick ou même d’une « Wii Board ».
+
+Liste des tâches et répartition
+
+Liste des Taches 
+Sem 2
+Sem 3
+Sem 4
+Sem 5
+Sem 6
+Sem 7
+Sem 8
+Sem 9
+Sem 10
+Définition du projet
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Découverte du robot
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Programmation du robot
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tests à l’avancement
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Recherche des sources d'erreurs
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Adaptation du programme
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tests complémentaires
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pistes d'améliorations
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Perspectives
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+Lego NXT en général 
+
+Ce projet a été conçu par le groupe Lego dans la gamme « robotique programmable ». Son utilisation est simple et essentiellement pédagogique.
+Au collège, la programmation se fait principalement à l’aide de pictogrammes.
+Au lycée ou dans les grandes écoles, cette brique est plus souvent programmée en Java, C ou python.
+
+Présentation des différents éléments du robot
+
+
+L’élément principal est la brique NXT (au centre) qui est reliée à l’ordinateur et qui dirige : 
+les servomoteurs (3 au maximum)
+les capteurs (4 au maximum) : infrarouge, luminosité, couleurs, contact,…
+
+
+Présentation du logiciel de programmation associé
+
+Lors de l’achat d’un robot NXT, il est fourni avec un logiciel simple d’utilisation pour programmer la brique NXT et permettre d’utiliser toutes ses capacités : NXT-G.
+
+
+Notre projet
+Librairies
+Les fonctions de commandes des servomoteurs et des capteurs proviennent de la libraire de Jorge Cardoso, mises dans le programme grâce à la fonction import.
+Utilisation de Processing (Bluetooth)
+Pour pouvoir programmer la brique NXT, il nous a fallu créer un programme grâce au logiciel Processing. Nous avons pu relier le robot au logiciel grâce à la technologie Bluetooth, intégrée directement dans la brique NXT.
+
+Fonctions utilisées
+Tout d’abord, il faut connecter la brique NXT à l’ordinateur grâce à la fonction : 
+lego = new LegoNXT(this, "COM9");  le COM étant le port de connexion avec la brique NXT.
+Les fonctions « spéciales » qui sont importées grâce à la librairie NXTComm utilisées permettent de contrôler chaque moteur. J’en ai utilisé 4 différentes :
+lego.motorForward(LegoNXT.MOTOR_X, POW) 
+                                    Cette fonction permet de dire au moteur X de tourner. 
+                                           Il faut remplacer X par la lettre associée au moteur  
+                                           que l’on veut contrôler et  POW par la puissance  
+                                           (entre 0 et 100). 
+lego.motorForwardLimit(LegoNXT.MOTOR_X, POW,ROT)                                       
+                                    
+                                   Cette fonction permet de dire au moteur X de tourner  
+                                          pendant un certain temps. Il faut remplacer X par la 
+                                          lettre associée au moteur que l’on veut contrôler,  
+                                          POW par la puissance (entre 0 et 100) et ROT par la 
+                                          rotation (en degrés). 
+lego.motorHandBrake(LegoNXT.MOTOR_X) 
+                                   Cette fonction permet de dire au moteur X de s’arrêter.
+                                          Il faut remplacer X par la lettre associée au moteur que 
+                                           l’on veut contrôler.
+lego.getMotorRotationCount(LegoNXT.MOTOR_B)
+                                   Cette fonction permet d’obtenir le degré de rotation  
+                                          du moteur X. Il faut remplacer X par la lettre associé au 
+                                          moteur que l’on veut contrôler. Cette fonction est  utilisée                             
+                                          avec la fonction text pour pouvoir voir le degré 
+                                          de rotation directement.
+
+Toutes les actions sont intégrées dans la void keyPressed(), à l’exception de getMotorRotationCount qui est dans le void draw().
+
+J’ai également dû utiliser différentes fonctions provenant de Processing
+Pour pouvoir effectuer des actions différentes en fonction de chaque lettre, j’ai utilisé des boucles "if". 
+Le contrôle en direct du robot utilise des touches « spéciales ». Les touches « spéciales » correspondent à toutes les touches qui ne correspondent pas à un caractère (ARROW KEYS, CONTROL, ALT, SHIFT, TAB, BACKSPACE, RETURN, ENTER…)
+Pour reconnaitre l’utilisation de ces touches, il faut utiliser comme condition (key == CODED) { }  puis à l’intérieur une autre condition (key == TOUCHE) { }  pour ensuite pouvoir ordonner des actions différentes suivant la touche utilisée.
+
+Pour les touches correspondant aux caractères, il suffit juste d’utiliser                             if (key == 'lettre') { } en remplaçant « lettre » par la lettre choisie, ou le caractère.
+D’autres fonctions ont été utilisées, notamment en rapport avec le texte, comme textSize() ou fill() mais aussi la fonction image() permettant de faire apparaître les différentes images utilisées.
+Une autre fonction indispensable est la fonction delay() qui permet d’enchainer différents mouvements dans la même action. 
+Par exemple, pour la lettre "L", les moteurs B et C doivent d’abord effectuer une rotation de 1000 degrés, puis le moteur C s’arrête alors que le moteur B continue de 250 degrés et ensuite les moteurs B et C effectuent une rotation de 600 degrés.
+
+
+Difficultés
+Les principales difficultés étaient d’utiliser convenablement les fonctions exclusives du robot pour réussir à avoir des trajectoires similaires aux lettres.
+L’utilisation de la fonction delay() a également été compliqué car le temps que l’on associe à la fonction a une incidence directe avec les actions précédentes.
+Lors de l’effectuation des trajectoires de lettres, je n’ai pas réussi à  ce que l’interface graphique indique en temps réel si le moteur est utilisé ou non. De plus, la lettre n’apparait que lors du dernier mouvement.
+
+
+
+
+Réalisation finale
+
+Au final, on peut demander au robot d’effectuer des trajectoires définies à l’avance grâce au clavier d’ordinateur (avancer, tourner, reculer, mais aussi suivre la trajectoire du L, du T, …)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Les limites du projet
+
+L’utilisation du Bluetooth est dérangeante dans le sens où le contact robot-ordinateur est souvent perdu, et il faut sans cesse les remettre en lien. 
+On ne peut atteindre une précision parfaite lors du déplacement du robot.
+En fonction de l’état des piles (plus ou moins chargées) utilisées dans le robot, les mouvements sont différents.
+Pour aller plus loin
+
+Pour continuer et améliorer ce projet, on pourrait utiliser les capteurs que l’on peut brancher à la brique NXT, comme par exemple le capteur d’ultrasons qui permet de connaitre la distance séparant le robot d’un obstacle, pour le faire changer de direction, ou encore effectuer un mouvement en fonction de la couleur du sol où il se déplace… L’interface clavier pourrait aussi être une interface souris, qui en fonction des coordonnées de la souris sur l’écran d’ordinateur commanderait des mouvements différents.
+Enfin, le code pourrait être mieux modulé, il est pour l’instant trop linéaire.
+
+
+BILAN
+En réalisant ce projet, j’ai pu approfondir mes connaissances dans la structure de la programmation en Java. J’ai également appris que d’une brique NXT simple d’utilisation on peut créer des robots très efficaces, utiles et évolués à l’image du robot CubeStormer II qui a battu le record « humain » de Rubik’s cube. 
+
+
+Ce travail permet de comprendre l’importance de fonctionner en équipe dans le cadre d’un projet :
+La communication nous a permis d’avoir l’esprit critique, d’échanger les idées et de les confronter, facilitant ainsi la découverte de solutions
+La répartition des tâches a permis d’optimiser le temps
+Partager les connaissances et les idées permet de progresser individuellement et de s’offrir un plus grand savoir.
+
+Diffusion du projet
+
+Choix de licence Creative Commons
+J'ai choisi comme licence de diffusion Creative Commons – attribution – pas d’utilisation commerciale. Par ce choix de licence, j’accepte que ce projet soit modifié sans autoriser la commercialisation du projet. En effet, je pense qu’un projet réalisé pour le lycée est largement perfectionnable. De plus, l’utilisation du robot NXT étant majoritairement éducative, il me parait plus intéressant de laisser ce projet ouvert à toute personne.
+
+Utilisation de Github
+J’ai utilisé Github pour partager mes fichiers avec les professeurs mais aussi les autres élèves de la spécialité ISN du lycée Aristide Briand. 
+
+Lien Github
+
+Diaporama
+
+
+Lien Diaporama
+
+
+
+
+
+
+
+
+
+
+
+
+Annexe 
+
+Une partie du code…
+
+import processing.serial.*; // importation de toutes les librairies nécessaires
+import pt.citar.diablu.nxt.protocol.*;
+import pt.citar.diablu.processing.nxt.*;
+import pt.citar.diablu.nxt.brick.*;
+
+LegoNXT lego;
+
+void setup() {
+  size(800, 450); // taille de la fenêtre qui va apparaitre à l’écran (en pixels)
+  lego = new LegoNXT(this, "COM9"); // permet le contact entre l’ordinateur et le robot
+  frameRate(5); // temps de rafraîchissement
+}
+
+
+void draw() {
+   fill(255); // le texte apparait de couleur blanche, jusqu’au prochain fill, ou jusqu’à la  
+                 prochaine boucle
+  text(lego.getMotorRotationCount(LegoNXT.MOTOR_B),110,70); // afficher la rotation du 
+                                                                                          moteur B aux coordonnées (110;70)
+  text(lego.getMotorRotationCount(LegoNXT.MOTOR_C),342,70); // afficher la rotation du 
+                                                                                          moteur C aux coordonnées (342;70)
+}
+
+
+
+
+
+Void keyPressed() {
+if (key == 'z' | key == 'Z') { // si la touche Z est pressée
+    image(fond, 0, 0);        // réinitialisation du fond
+    fill(0);                             //couleur du texte noire
+    textSize(110);               // taille du texte suivant
+    text("Z", 600, 260);       // Z est affiché aux coordonnées (600;260)
+    textSize(20);                // taille du texte suivant
+    text("utilisé", 120, 130); // "utilisé" est affiché aux coordonnées (120 ;130)
+    text("utilisé", 355, 130); // "utilisé" est affiché aux coordonnées (355 ;130)
+    lego.motorForwardLimit(LegoNXT.MOTOR_B, 100, 1000);  // le moteur B tourne en    
+                               sens horaire pendant 1000 degrés à une puissance de 100 sur 100
+    lego.motorForwardLimit(LegoNXT.MOTOR_C, 100, 1000); // le moteur C tourne en    
+                               sens horaire pendant 1000 degrés à une puissance de 100 sur 100
+    delay(2000);                // pause de 2000 millisecondes
+    lego.motorHandBrake(LegoNXT.MOTOR_B); // moteur B est arrêté
+    lego.motorForwardLimit(LegoNXT.MOTOR_C, 100, 500); //moteur C tourne en sens          
+                                           horaire pendant 500 degrés à une puissance de 100 sur 100
+    delay(2300);                // pause de 2300 millisecondes
+    lego.motorForwardLimit(LegoNXT.MOTOR_B, 100, 1200); // le moteur B tourne en    
+                              sens horaire pendant 1200 degrés à une puissance de 100 sur 100
+    lego.motorForwardLimit(LegoNXT.MOTOR_C, 100, 1200); // le moteur C tourne en    
+                               sens horaire pendant 1200 degrés à une puissance de 100 sur 100
+    delay(2300); // pause de 2300 millisecondes
+    lego.motorHandBrake(LegoNXT.MOTOR_C); // moteur C est arrêté
+    lego.motorForwardLimit(LegoNXT.MOTOR_B, 100, 500); // le moteur C tourne en    
+                               sens horaire pendant 500 degrés à une puissance de 100 sur 100
+    delay(2300); // pause de 2300 millisecondes
+    lego.motorForwardLimit(LegoNXT.MOTOR_B, 100, 1000); // le moteur B tourne en    
+                              sens horaire pendant 1000 degrés à une puissance de 100 sur 100
+    lego.motorForwardLimit(LegoNXT.MOTOR_C, 100, 1000); // le moteur C tourne en    
+                               sens horaire pendant 1000 degrés à une puissance de 100 sur 100
+      } 
+
+
+
+if (key == CODED) {
+    if (keyCode == UP) {                //si la touche "flèche du haut" est pressée
+      
+      lego.motorForward(LegoNXT.MOTOR_B, 100); // moteur B est mis en marche, vers 
+                                                                                          l'avant, puissance 100
+      lego.motorForward(LegoNXT.MOTOR_C, 100); // moteur C est mis en marche, vers  
+                                                                                           l'avant, puissance 100
+      image(fond, 0, 0);                 //réinitialisation de l'interface graphique
+      image(haut, 600, 180);         // l'image "haut" apparait aux coordonnées (600;180)
+      fill(0);                                       // texte de couleur noire
+      textSize(20);                           //taille de police du texte
+      text("utilisé", 120, 130);          // le texte "utilisé" apparait aux coordonnées (120;130)
+      text("utilisé", 355, 130);          // le texte "utilisé" apparait aux coordonnées (355;130)
+     }  }
